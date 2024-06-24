@@ -1,0 +1,5 @@
+service android.hardware.rpi.spi-service /vendor/bin/hw/android.hardware.rpi.spi-service
+        interface aidl android.hardware.rpi.spi.ISpi/default
+        class hal
+        user system
+        group system

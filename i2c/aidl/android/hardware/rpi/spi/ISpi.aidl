@@ -1,7 +1,7 @@
-package android.hardware.rpi.spi;
+package android.hardware.rpi.i2c;
 
 @VintfStability
-interface ISpi{
+interface II2c{
     boolean connect(in String port, in int speed, in int bits, in int mode);
     boolean disconnect();
     byte sendByte(out byte[] data, in int len);

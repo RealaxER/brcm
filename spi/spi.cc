@@ -117,18 +117,7 @@ int32_t spi_write_read(int32_t fd, uint8_t *write_buf, uint8_t *read_buf, uint32
     return ret;
 }
 
-int32_t spi_close(int32_t fd)
-{
-    int32_t ret = 0;
 
-    if(fd < 0)
-    {
-        printf("fd is invalid\n");
-    }
-    ret = close(fd);
-
-    return ret;
-}
 
 int main(int argc, char * argv [ ])
 {
