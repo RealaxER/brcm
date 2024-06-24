@@ -1,0 +1,5 @@
+service android.hardware.rpi.uart-service /vendor/bin/hw/android.hardware.rpi.uart-service
+        interface aidl android.hardware.rpi.uart.IUart/default
+        class hal
+        user system
+        group system

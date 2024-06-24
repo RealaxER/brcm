@@ -1,0 +1,15 @@
+aidl_interface {
+    name: "android.hardware.rpi.uart",
+    vendor: true,
+    srcs: ["android/hardware/rpi/uart/*.aidl"],
+    stability: "vintf",
+    owner: "bdhien",
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+}

@@ -1,0 +1,15 @@
+aidl_interface {
+    name: "android.hardware.rpi.spi",
+    vendor: true,
+    srcs: ["android/hardware/rpi/spi/*.aidl"],
+    stability: "vintf",
+    owner: "bdhien",
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+    },
+}

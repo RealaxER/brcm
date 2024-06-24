@@ -1,0 +1,27 @@
+cc_binary {
+    name: "android.hardware.rpi.uart-service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.rpi.uart-service.rc"],
+    vintf_fragments: ["android.hardware.rpi.uart-service.xml"],
+
+    srcs: [
+        "IUart.cpp",
+        "service.cpp",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libhardware",
+        "libbinder_ndk",
+        "libbinder",
+        "libutils",
+        "android.hardware.rpi.uart-V1-ndk",
+    ],
+}
