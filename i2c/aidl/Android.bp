@@ -1,7 +1,7 @@
 aidl_interface {
-    name: "android.hardware.rpi.i2c",
+    name: "android.hardware.imx.i2c",
     vendor: true,
-    srcs: ["android/hardware/rpi/i2c/*.aidl"],
+    srcs: ["android/hardware/imx/i2c/*.aidl"],
     stability: "vintf",
     owner: "bdhien",
     backend: {

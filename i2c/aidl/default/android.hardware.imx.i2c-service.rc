@@ -1,0 +1,5 @@
+service android.hardware.imx.i2c-service /vendor/bin/hw/android.hardware.imx.i2c-service
+        interface aidl android.hardware.imx.i2c.IUart/default
+        class hal
+        user system
+        group system

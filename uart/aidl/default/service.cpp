@@ -7,7 +7,7 @@
 #include <binder/IServiceManager.h>
 #include "Uart.h"
 
-using aidl::android::hardware::rpi::uart::Uart;
+using aidl::android::hardware::imx::uart::Uart;
 using std::string_literals::operator""s;
 
 void logd(std::string msg) {

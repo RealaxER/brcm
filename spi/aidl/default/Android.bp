@@ -1,9 +1,9 @@
 cc_binary {
-    name: "android.hardware.rpi.spi-service",
+    name: "android.hardware.imx.spi-service",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["android.hardware.rpi.spi-service.rc"],
-    vintf_fragments: ["android.hardware.rpi.spi-service.xml"],
+    init_rc: ["android.hardware.imx.spi-service.rc"],
+    vintf_fragments: ["android.hardware.imx.spi-service.xml"],
 
     srcs: [
         "ISpi.cpp",
@@ -22,6 +22,6 @@ cc_binary {
         "libbinder_ndk",
         "libbinder",
         "libutils",
-        "android.hardware.rpi.spi-V1-ndk",
+        "android.hardware.imx.spi-V1-ndk",
     ],
 }

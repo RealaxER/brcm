@@ -7,7 +7,7 @@
 #include <binder/IServiceManager.h>
 #include "Spi.h"
 
-using aidl::android::hardware::rpi::spi::Spi;
+using aidl::android::hardware::imx::spi::Spi;
 using std::string_literals::operator""s;
 
 void logd(std::string msg) {

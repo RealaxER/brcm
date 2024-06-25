@@ -1,0 +1,5 @@
+service android.hardware.imx.spi-service /vendor/bin/hw/android.hardware.imx.spi-service
+        interface aidl android.hardware.imx.spi.ISpi/default
+        class hal
+        user system
+        group system

@@ -1,0 +1,17 @@
+cc_binary {
+    name: "i2c_test",
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "i2c.c",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+
+    shared_libs: [
+        "libutils",
+    ],
+}

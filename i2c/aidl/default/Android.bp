@@ -1,9 +1,9 @@
 cc_binary {
-    name: "android.hardware.rpi.i2c-service",
+    name: "android.hardware.imx.i2c-service",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["android.hardware.rpi.i2c-service.rc"],
-    vintf_fragments: ["android.hardware.rpi.i2c-service.xml"],
+    init_rc: ["android.hardware.imx.i2c-service.rc"],
+    vintf_fragments: ["android.hardware.imx.i2c-service.xml"],
 
     srcs: [
         "II2c.cpp",
@@ -22,6 +22,6 @@ cc_binary {
         "libbinder_ndk",
         "libbinder",
         "libutils",
-        "android.hardware.rpi.i2c-V1-ndk",
+        "android.hardware.imx.i2c-V1-ndk",
     ],
 }

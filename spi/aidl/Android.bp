@@ -1,7 +1,7 @@
 aidl_interface {
-    name: "android.hardware.rpi.spi",
+    name: "android.hardware.imx.spi",
     vendor: true,
-    srcs: ["android/hardware/rpi/spi/*.aidl"],
+    srcs: ["android/hardware/imx/spi/*.aidl"],
     stability: "vintf",
     owner: "bdhien",
     backend: {

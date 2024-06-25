@@ -10,18 +10,22 @@
 #include <iostream>
 #include "Uart.h"
 
-using namespace aidl::android::hardware::rpi;
+using namespace aidl::android::hardware::imx;
 
 namespace aidl {
 namespace android {
 namespace hardware {
-namespace rpi {
+namespace imx {
 namespace uart {
 
 int fd =  0;
 struct termios options;
 
-ndk::ScopedAStatus connect(const std::string& in_port, int32_t in_baud, bool* _aidl_return)
+Uart::~Uart() {
+    ALOGD("=====END UART======");
+}
+
+ndk::ScopedAStatus Uart::connect(const std::string& in_port, int32_t in_baud, bool* _aidl_return)
 {
     fd = open(in_port.c_str(), O_RDWR | O_NDELAY | O_NOCTTY);
     if (fd < 0) {
@@ -39,17 +43,17 @@ ndk::ScopedAStatus connect(const std::string& in_port, int32_t in_baud, bool* _a
     tcsetattr(fd, TCSANOW, &options);
 
     if(fd < 0){
-        *_aidl_return =  false;
+        *_aidl_return = false;
         return ndk::ScopedAStatus::fromServiceSpecificError(-1);
     }
     else {
-        *_aidl_return =  true;
+        *_aidl_return = true;
         return ndk::ScopedAStatus::ok();
     }
 }
 
 //void putChars(in String msg);
-ndk::ScopedAStatus disconnect(bool* _aidl_return)
+ndk::ScopedAStatus Uart::disconnect(bool* _aidl_return)
 {
     close(fd);
     *_aidl_return  = true;
@@ -57,14 +61,13 @@ ndk::ScopedAStatus disconnect(bool* _aidl_return)
 }
 
 
-ndk::ScopedAStatus sendByte(std::vector<uint8_t>* out_data, int32_t in_len, int8_t* _aidl_return) {
+ndk::ScopedAStatus Uart::sendByte(std::vector<uint8_t>* out_data, int32_t in_len, int8_t* _aidl_return) {
     if (out_data->size() < static_cast<size_t>(in_len)) {
         return ndk::ScopedAStatus::fromServiceSpecificError(-2); 
     }
 
     int8_t ret = write(fd, out_data->data(), in_len);
     *_aidl_return = ret;
-
     if (ret < 0) {
         ALOGE("Error writing to UART");
         return ndk::ScopedAStatus::fromServiceSpecificError(-1);
@@ -74,7 +77,7 @@ ndk::ScopedAStatus sendByte(std::vector<uint8_t>* out_data, int32_t in_len, int8
 }
 
 
-ndk::ScopedAStatus readByte(std::vector<uint8_t>* out_data, int32_t in_len, int8_t* _aidl_return) {
+ndk::ScopedAStatus Uart::readByte(std::vector<uint8_t>* out_data, int32_t in_len, int8_t* _aidl_return) {
     out_data->clear();
     out_data->resize(in_len);
 
@@ -93,7 +96,7 @@ ndk::ScopedAStatus readByte(std::vector<uint8_t>* out_data, int32_t in_len, int8
 
 
 }  // namespace uart
-}  // namespace rpi
+}  // namespace imx
 }  // namespace hardware
 }  // namespace android
 }  // namespace aidl

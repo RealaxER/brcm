@@ -1,0 +1,5 @@
+service android.hardware.imx.uart-service /vendor/bin/hw/android.hardware.imx.uart-service
+        interface aidl android.hardware.imx.uart.IUart/default
+        class hal
+        user system
+        group system

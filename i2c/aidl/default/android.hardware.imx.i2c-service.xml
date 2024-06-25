@@ -1,0 +1,7 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>android.hardware.imx.i2c</name>
+        <version>1</version>
+        <fqname>II2c/default</fqname>
+    </hal>
+</manifest>
